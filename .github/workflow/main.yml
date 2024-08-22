@@ -98,7 +98,7 @@ jobs:
         with:
           context: ./frontend/
           push: true
-          tags: nixaris/taski_frontend:latest
+          tags: nixaris/kittygram_frontend:latest
 
   build_gateway_and_push_to_docker_hub:
     name: Push gateway Docker image to DockerHub
@@ -122,7 +122,7 @@ jobs:
         with:
           context: ./nginx/
           push: true
-          tags: nixaris/taski_gateway:latest
+          tags: nixaris/kittygram_gateway:latest
 
   deploy:
     runs-on: ubuntu-latest
