@@ -13,8 +13,8 @@ services:
       - pg_data:/var/lib/postgresql/data
 
   backend:
+    build: ./backend/
     env_file: .env
-    image: nixaris/kittygram_backend
     volumes:
       - static:/backend_static
       - media:/app/media
@@ -23,13 +23,13 @@ services:
 
   frontend:
     env_file: .env
-    image: nixaris/kittygram_frontend
+    build: ./frontend/
     command: cp -r /app/build/. /static/
     volumes:
       - static:/static
 
   gateway:
-    image: nixaris/kittygram_gateway
+    build: ./nginx/
     env_file: .env
     ports:
       - 9000:80
